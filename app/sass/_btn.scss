@@ -1,0 +1,26 @@
+.btn {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  height: 60px;
+  padding: 20px 38px;
+  border: 2px solid $main-blue-color;
+  background-color: $btn-back;
+  font-size: 14px;
+  line-height: 16px;
+  color: $main-blue-color;
+  @include main-font1();
+  @include transition(all, .3, 0);
+
+  &:hover {
+    color: #fff;
+    background: $main-blue-color;
+  }
+}
+
+@media (min-width: $tablet-landscape) {
+  .btn {
+
+
+  }
+}
