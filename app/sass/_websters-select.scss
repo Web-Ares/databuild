@@ -11,7 +11,7 @@
   font-size: 16px;
   line-height: 50px;
   letter-spacing: 0.6px;
-  @include main-font5();
+  @include main-font4();
   border: 2px solid $websters-select-border;
   background: $websters-select-back;
 
@@ -98,7 +98,7 @@
       cursor: pointer;
       color: $websters-select-item-color;
       background: $websters-select-back;
-      @include main-font5();
+      @include main-font4();
       -webkit-transition: background .3s, color .3s;
       transition: background .3s, color .3s;
 

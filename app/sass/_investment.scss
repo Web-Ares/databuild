@@ -1,65 +1,158 @@
 
 .investment {
-  padding-top: 249px;
+  padding-top: 40px;
 
   &__wrap {
-    margin-bottom: 110px;
+    margin-bottom: 40px;
   }
   &__text {
-    display: inline-block;
-    vertical-align: top;
-    width: 49.9%;
-    padding-left: 14px;
-    padding-top: 7px;
-    font-size: 20px;
-    line-height: 34px;
-    margin-left: -4px;
+    font-size: 18px;
+    line-height: 31px;
     color: $main-text-color;
   }
   &__list {
 
     ul {
-      display: flex;
-      align-content: center;
-      align-items: center;
-      height: 162px;
-      border-top: 2px solid #e8ebef;
 
       &:last-child {
-        border-bottom: 2px solid #e8ebef;
+
+        li {
+
+          &:last-child {
+            border-bottom: 2px solid #e8ebef;
+          }
+        }
       }
+
       li {
         position: relative;
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-        padding-left: 198px;
-        padding-right: 75px;
-        font-size: 18px;
-        line-height: 26px;
+        padding-left: 110px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-top: 2px solid #e8ebef;
+        font-size: 16px;
+        line-height: 24px;
         color: $main-text-color;
 
-        &:last-child {
-          margin-left: -4px;
-        }
         div {
+          overflow: hidden;
           position: absolute;
-          width: 170px;
+          width: 102px;
           top: 0;
           bottom: 0;
           left: 0;
 
           svg {
             @include absoluteCenter();
-            width: 680px;
-            height: 680px;
+            width: 380px;
+            height: 380px;
 
             path,
             polygon,
             line {
               stroke: $main-blue-color;
+              @include transition(stroke, .3, 0);
             }
-            &.marker {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .investment {
+
+    &__text {
+      display: inline-block;
+      vertical-align: top;
+      width: 49.9%;
+      padding-left: 14px;
+      padding-top: 7px;
+      margin-left: -4px;
+    }
+    &__list {
+
+      ul {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        height: 162px;
+        border-top: 2px solid #e8ebef;
+
+        &:last-child {
+          border-bottom: 2px solid #e8ebef;
+
+          li:last-child {
+            border-bottom: none;
+          }
+        }
+        li {
+          position: relative;
+          display: flex;
+          align-content: center;
+          align-items: center;
+          width: 50%;
+          height: 162px;
+          border-top: none;
+
+          &:last-child {
+            margin-left: -4px;
+          }
+        }
+      }
+    }
+    .site__title {
+      display: inline-block;
+      vertical-align: top;
+      width: 50%;
+    }
+  }
+}
+
+@media (min-width: $tablet-landscape) {
+
+
+}
+
+@media (min-width: $desktop) {
+
+  .investment {
+    padding-top: 249px;
+
+    &__wrap {
+      margin-bottom: 110px;
+    }
+    &__text {
+      font-size: 20px;
+      line-height: 34px;
+    }
+    &__list {
+
+      ul {
+
+        li {
+          padding-left: 198px;
+          padding-right: 75px;
+          font-size: 18px;
+          line-height: 26px;
+
+          &:hover {
+
+            svg {
+
+              path,
+              polygon,
+              line {
+                stroke: $main-text-color;
+              }
+            }
+          }
+          div {
+            width: 170px;
+
+            svg {
               width: 680px;
               height: 680px;
             }
@@ -68,22 +161,4 @@
       }
     }
   }
-  .site__title {
-    display: inline-block;
-    vertical-align: top;
-    width: 50%;
-  }
-}
-
-
-@media (min-width: $tablet-portrait) {
-
-}
-
-@media (min-width: $tablet-landscape) {
-
-}
-
-@media (min-width: $desktop) {
-
 }

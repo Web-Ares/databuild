@@ -10,7 +10,7 @@
   line-height: 49px;
   color: $main-white-color;
   letter-spacing: -0.5px;
-  @include main-font5();
+  @include main-font4();
   @include transition(all, .3, 0);
 
   &:hover {

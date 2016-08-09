@@ -119,13 +119,24 @@
         }
       }
     }
+    &_black {
+
+      span {
+        background: $header-menu-btn-back-2;
+
+        &:before,
+        &:after {
+          background: $header-menu-btn-back-2;
+        }
+      }
+    }
   }
   &__footer {
     padding-top: 15px;
     padding-bottom: 15px;
     font-size: 16px;
     letter-spacing: 0;
-    @include main-font5();
+    @include main-font4();
 
     &-layout {
       position: relative;
@@ -263,20 +274,28 @@
   &__content {
     position: relative;
     z-index: 1;
+
+    &_inner {
+      padding-top: 70px;
+    }
   }
   &__title {
-    margin-bottom: 47px;
-    margin-left: -2px;
-    font-size: 48px;
+    margin-bottom: 30px;
+    font-size: 37px;
     color: $main-title-color;
-    line-height: 45px;
+    line-height: 40px;
     font-weight: 400;
     text-transform: uppercase;
 
     span {
-      font-size: 24px;
+      font-size: 20px;
       color: #999;
       display: block;
+    }
+
+    &_small {
+      letter-spacing: -1.2px;
+      text-transform: none;
     }
   }
 }
@@ -354,7 +373,18 @@
 }
 @media (min-width: $tablet-portrait) {
   .site {
+    &__title {
+      margin-bottom: 47px;
+      margin-left: -2px;
+      font-size: 48px;
+      line-height: 45px;
 
+      span {
+        font-size: 24px;
+        color: #999;
+        display: block;
+      }
+    }
   }
 }
 @media (min-width: $tablet-landscape) {
@@ -375,6 +405,12 @@
     }
     &__header {
       height: 240px;
+    }
+    &__content {
+
+      &_inner {
+        padding-top: 235px;
+      }
     }
     &__menu {
       opacity: 0;
@@ -434,6 +470,31 @@
         border-color: $main-blue-color;
         color: #fff;
       }
+      &_black {
+
+        .site__menu-item {
+
+          a {
+            opacity: .8;
+            color: #434d5a;
+            -webkit-transition: color .3s, opacity .3s;
+            transition: color .3s, opacity .3s;
+
+            &:hover,
+            &.active {
+              opacity: 1;
+              color: #000;
+            }
+          }
+        }
+        .btn {
+          color: #000;
+
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
     }
     &__menu-btn {
       top: 105px;
@@ -463,6 +524,17 @@
           &:before,
           &:after {
             background: $main-blue-color;
+          }
+        }
+      }
+      &_black {
+
+        span {
+          background: $header-menu-btn-back-2;
+
+          &:before,
+          &:after {
+            background: $header-menu-btn-back-2;
           }
         }
       }
