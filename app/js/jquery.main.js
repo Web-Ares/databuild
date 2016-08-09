@@ -32,10 +32,46 @@
                     }
                 } );
 
+                _showBtn.on( {
+                    click: function( event ){
+                        event = event || window.event;
+
+                        if ( event.stopPropagation ) {
+                            event.stopPropagation();
+                        } else {
+                            event.cancelBubble = true;
+                        }
+                    }
+                } );
+                _menu.on( {
+                    click: function( event ){
+                        event = event || window.event;
+
+                        if ( event.stopPropagation ) {
+                            event.stopPropagation();
+                        } else {
+                            event.cancelBubble = true;
+                        }
+                    }
+                } );
+
+                _body.on( {
+                    click: function() {
+
+                        if( _showBtn.hasClass( 'opened' ) ) {
+
+                            _showBtn.removeClass( 'opened' );
+                            _menu.removeClass( 'opened' );
+
+                        }
+
+                    }
+                } );
+
                 _window.on( {
                     resize: function () {
 
-                        _resetStyle();
+                        // _resetStyle();
 
                     }
                 } );
@@ -50,18 +86,10 @@
                     curItem.removeClass( 'opened' );
                     _menu.removeClass( 'opened' );
 
-                    _body.css( {
-                        'overflow': 'visible'
-                    } );
-
                 } else {
 
                     curItem.addClass( 'opened' );
                     _menu.addClass( 'opened' );
-
-                    _body.css( {
-                        'overflow': 'hidden'
-                    } );
                 }
 
             },
@@ -69,9 +97,6 @@
 
                 _showBtn.removeClass( 'opened' );
                 _menu.removeAttr( 'style' );
-                _body.css( {
-                    'overflow': 'visible'
-                } );
 
             },
             _init = function() {

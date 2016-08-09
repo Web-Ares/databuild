@@ -1,0 +1,89 @@
+
+.investment {
+  padding-top: 249px;
+
+  &__wrap {
+    margin-bottom: 110px;
+  }
+  &__text {
+    display: inline-block;
+    vertical-align: top;
+    width: 49.9%;
+    padding-left: 14px;
+    padding-top: 7px;
+    font-size: 20px;
+    line-height: 34px;
+    margin-left: -4px;
+    color: $main-text-color;
+  }
+  &__list {
+
+    ul {
+      display: flex;
+      align-content: center;
+      align-items: center;
+      height: 162px;
+      border-top: 2px solid #e8ebef;
+
+      &:last-child {
+        border-bottom: 2px solid #e8ebef;
+      }
+      li {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+        padding-left: 198px;
+        padding-right: 75px;
+        font-size: 18px;
+        line-height: 26px;
+        color: $main-text-color;
+
+        &:last-child {
+          margin-left: -4px;
+        }
+        div {
+          position: absolute;
+          width: 170px;
+          top: 0;
+          bottom: 0;
+          left: 0;
+
+          svg {
+            @include absoluteCenter();
+            width: 680px;
+            height: 680px;
+
+            path,
+            polygon,
+            line {
+              stroke: $main-blue-color;
+            }
+            &.marker {
+              width: 680px;
+              height: 680px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .site__title {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+  }
+}
+
+
+@media (min-width: $tablet-portrait) {
+
+}
+
+@media (min-width: $tablet-landscape) {
+
+}
+
+@media (min-width: $desktop) {
+
+}

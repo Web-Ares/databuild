@@ -1,9 +1,9 @@
 .logo {
   position: absolute;
   z-index: 1;
-  top: 9px;
-  left: 50px;
-  width: 70px;
+  top: 6px;
+  left: 10px;
+  width: 50px;
 
   img {
     width: 100%;
@@ -19,15 +19,16 @@
 
 @media (min-width: $tablet-landscape) {
 
-  .logo {
-    top: 41px;
-    left: 14px;
-    width: 140px;
-    height: 67px;
-  }
+
 
 }
 
 @media (min-width: $desktop) {
+
+  .logo {
+    top: 80px;
+    left: 80px;
+    width: 108px;
+  }
 
 }

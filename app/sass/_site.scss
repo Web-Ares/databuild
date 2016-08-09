@@ -7,11 +7,13 @@
   @include main-font2();
 
   &__header {
-    position: relative;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
     z-index: 4;
-    width: 100%;
     height: 50px;
-    background: $header-background;
+    background: transparent;
 
     &-layout {
       position: relative;
@@ -20,19 +22,17 @@
     }
   }
   &__menu {
-    position: fixed;
+    position: absolute;
     z-index: 4;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 50px 0 0;
+    top: 50px;
+    right: 0;
+    padding: 20px 14px;
     background: $header-menu-back;
     font-size: 18px;
     line-height: 1;
-    text-align: center;
-    @include transform-translate( -100%, 0);
-    @include transition(transform, .2, 0);
+    text-align: right;
+    @include transform-translate( 100%, 0);
+    @include transition(all, .2, 0);
 
     &.opened {
       @include transform-translate( 0, 0);
@@ -41,9 +41,7 @@
     &-item {
       display: block;
       position: relative;
-      padding: 7px 0;
-      margin: 0 auto;
-      text-align: center;
+      margin: 0 auto 10px;
 
       a {
         font-size: 16px;
@@ -58,14 +56,18 @@
 
     .btn {
       margin-top: 20px;
+      padding: 0 20px;
+      border-color: #fff;
+      line-height: 44px;
+      color: #fff;
     }
   }
   &__menu-btn {
     display: block;
     position: absolute;
     z-index: 5;
-    top: 12px;
-    left: 2px;
+    top: 15px;
+    right: 12px;
     width: 40px;
     height: 25px;
     padding: 0;
@@ -80,11 +82,10 @@
     span {
       display: block;
       position: absolute;
-      top: 50%;
-      left: 10px;
-      right: 10px;
+      top: 0;
+      left: 2px;
+      right: 2px;
       height: 3px;
-      margin-top: -2px;
       background: $header-menu-btn-back;
       font-size: 0;
       @include transition( background-color, 0.3, 0 );
@@ -92,44 +93,39 @@
       &:before,
       &:after {
         position: absolute;
-        left: 0;
-        width: 100%;
+        right: 0;
+        width: 60%;
         height: 100%;
         background: $header-menu-btn-back;
         content: '';
-        -webkit-transition: -webkit-transform 0.3s, background .3s;
-        transition: transform 0.3s, background .3s;
+        -webkit-transition: width 0.3s, background .3s;
+        transition: width 0.3s, background .3s;
       }
       &:before {
-        @include transform-translate( 0, -6px );
+        transform: translate(0, 8px);
+        width: 80%;
       }
       &:after {
-        @include transform-translate( 0, 6px );
+        transform: translate(0, 16px);
       }
     }
     &.opened {
 
       span {
-        background-color: transparent;
 
-        &:before {
-          background: $header-menu-btn-opened;
-          -webkit-transform: translateY(0) rotate(45deg);
-          transform: translateY(0) rotate(45deg);
-        }
-
+        &:before,
         &:after {
-          background: $header-menu-btn-opened;
-          -webkit-transform: translateY(0) rotate(-45deg);
-          transform: translateY(0) rotate(-45deg);
+          width: 100%;
         }
       }
     }
   }
   &__footer {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    @include main-font1();
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 16px;
+    letter-spacing: 0;
+    @include main-font5();
 
     &-layout {
       position: relative;
@@ -139,27 +135,36 @@
     }
     &-logo {
       width: 70px;
-      height: 36px;
-      margin: 0 auto 20px;
+      margin: 0 auto 10px;
 
       img {
         width: 100%;
         height: auto;
       }
     }
+    &-menu {
+      text-align: center;
+      margin-bottom: 10px;
+
+      div {
+        margin-bottom: 5px;
+      }
+      a {
+        color: $footer-text-color;
+        letter-spacing: -0.6px;
+      }
+    }
     &-crafted {
       display: block;
       color: $footer-text-color;
-      font-size: 16px;
-      line-height: 26px;
-    }
-    &-crafted {
       letter-spacing: -0.1px;
+      text-align: center;
+      font-size: 16px;
 
       a {
         display: inline-block;
         position: relative;
-        color: $main-blue-color;
+        color: #191e24;
 
         &:after {
           opacity: 0;
@@ -168,12 +173,13 @@
           bottom: -2px;
           height: 1px;
           width: 100%;
-          background: $main-blue-color;
+          background: #191e24;
           -webkit-transition: opacity .2s, bottom .2s;
           transition: opacity .2s, bottom .2s;
           content: '';
         }
         &:hover {
+
           &:after {
             opacity: 1;
             bottom: 0;
@@ -181,29 +187,69 @@
         }
       }
     }
-    .social {
-      @include absoluteCenterX();
-      right: auto;
-      top: -8px;
-    }
   }
   &__hero {
-    padding: 40px 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url('../pic/hero-pic.jpg');
     background-size: cover;
     background-position: center;
 
-    &-title {
-      margin-bottom: 35px;
-      text-align: center;
-      font-size: 25px;
-      line-height: 35px;
-      letter-spacing: -0.8px;
+    &:after,
+    &:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0,0,0, .7);
+      content: '';
+    }
+    &:after {
+      background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,.85) 100%);
+      background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,.85) 100%);
+    }
 
-      span {
-        display: block;
-        font-size: 33px;
-        @include main-font3();
+    &-text {
+      position: relative;
+      z-index: 3;
+      font-size: 24px;
+      line-height: 30px;
+      color: $main-white-color;
+
+      p {
+        margin-bottom: 30px;
       }
+    }
+    &-pic {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      right: -30%;
+      transform: translateY(-57.7%);
+
+      img {
+        width: 100%;
+      }
+    }
+    &-down {
+      @include absoluteCenterX();
+      z-index: 3;
+      display: block;
+      bottom: 5%;
+      width: 23px;
+      height: 44px;
+      background: url(../img/arrow-down.png) no-repeat;
+      background-size: contain;
+      -webkit-transform-origin: center bottom;
+      transform-origin: center bottom;
+      -webkit-animation: bounce 2s infinite linear;
+      animation: bounce 2s infinite linear;
+      cursor: pointer;
     }
   }
   &__centered {
@@ -218,86 +264,103 @@
     position: relative;
     z-index: 1;
   }
+  &__title {
+    margin-bottom: 47px;
+    margin-left: -2px;
+    font-size: 48px;
+    color: $main-title-color;
+    line-height: 45px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    span {
+      font-size: 24px;
+      color: #999;
+      display: block;
+    }
+  }
+}
+
+@-webkit-keyframes bounce {
+  from, 20%, 53%, 80%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+  }
+  40%, 43% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+  70% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0,-4px,0);
+    transform: translate3d(0,-2px,0);
+  }
+}
+@keyframes bounce {
+  from, 20%, 53%, 80%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+  }
+  40%, 43% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+  70% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0,-2px,0);
+    transform: translate3d(0,-2px,0);
+  }
 }
 
 @media (min-width: $phone-landscape) {
 
+  .site {
+
+    &__hero {
+
+      &-text {
+        position: relative;
+        display: inline-block;
+        width: 50%;
+        z-index: 3;
+        font-size: 24px;
+        line-height: 30px;
+        color: $main-white-color;
+      }
+      &-pic {
+        width: 60%;
+        right: 0;
+      }
+    }
+  }
 }
 @media (min-width: $tablet-portrait) {
   .site {
 
-    &__menu-btn {
-      top: 13px;
-      left: 10px;
-    }
   }
 }
 @media (min-width: $tablet-landscape) {
   .site {
 
-    &__header {
-      height: 154px;
 
-      &-layout {
-        height: 154px;
-      }
-    }
-    &__menu {
-      position: absolute;
-      top: 59px;
-      right: 16px;
-      left: auto;
-      height: auto;
-      width: auto;
-      padding: 0 0;
-      transform: translate(0, 0);
-      background: transparent;
-
-      &-wrap {
-        position: relative;
-        vertical-align: top;
-        display: inline-block;
-      }
-      .site__menu-item {
-        vertical-align: top;
-        display: inline-block;
-        margin-right: 10px;
-
-        a {
-          vertical-align: top;
-          display: inline-block;
-          font-size: 14px;
-          color: $main-blue-color;
-          @include transition(color, .3, 0);
-
-          &:hover {
-            //color: $main-red-color;
-          }
-        }
-      }
-
-      &-btn {
-        display: none;
-      }
-      .btn {
-        vertical-align: top;
-        display: inline-block;
-        margin-top: -16px;
-      }
-    }
-    &__hero {
-      padding: 100px 0;
-
-      &-title {
-        margin-bottom: 53px;
-        font-size: 32px;
-        line-height: 44px;
-
-        span {
-          font-size: 42px;
-        }
-      }
-    }
   }
 }
 @media (min-width: $desktop) {
@@ -306,23 +369,103 @@
     &:after {
       display: block;
       width: 100%;
-      height: 475px;
+      height: 200px;
       clear: both;
       content: '';
     }
+    &__header {
+      height: 240px;
+    }
     &__menu {
-      right: 16px;
-      left: 340px;
+      opacity: 0;
+      visibility: hidden;
+      width: 970px;
+      top: 109px;
+      right: auto;
+      left: 50%;
+      margin-left: -485px;
+      height: auto;
+      padding: 0 0;
+      text-align: center;
+      background: transparent;
 
+      &.opened {
+        opacity: 1;
+        visibility: visible;
+      }
+      &-wrap {
+        position: relative;
+        vertical-align: top;
+        display: inline-block;
+      }
       .site__menu-item {
-        margin-right: 43.1px;
+        vertical-align: top;
+        display: inline-block;
+        margin-right: 12px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        a {
+          vertical-align: top;
+          display: inline-block;
+          font-size: 20px;
+          color: #434d5a;
+          @include transition(color, .3, 0);
+
+          &:hover,
+          &.active {
+            color: $main-white-color;
+            border-bottom: none;
+          }
+        }
       }
       .btn {
-        margin-left: -7px;
+        vertical-align: top;
+        display: inline-block;
+        position: relative;
+        left: 13px;
+        margin-top: -16px;
+        margin-left: 12px;
+        padding: 0 37px;
+        font-size: 18px;
+        line-height: 49px;
+        border-color: $main-blue-color;
+        color: #fff;
       }
     }
-    &__hero {
-      padding: 206px 0 218px;
+    &__menu-btn {
+      top: 105px;
+      right: 79px;
+
+      span {
+        background: $main-white-color;
+
+        &:before,
+        &:after {
+          width: 45%;
+          background: $main-white-color;
+        }
+        &:before {
+          transform: translate(0, 13px);
+          width: 73%;
+        }
+        &:after {
+          transform: translate(0, 26px);
+        }
+      }
+      &.opened {
+
+        span {
+          background: $main-blue-color;
+
+          &:before,
+          &:after {
+            background: $main-blue-color;
+          }
+        }
+      }
     }
     &__footer {
       position: absolute;
@@ -330,32 +473,77 @@
       right: 0;
       bottom: 0;
       left: 0;
-      height: 475px;
-      padding: 100px 0 0;
+      height: 200px;
+      padding: 80px 0 0;
 
-      &-layout {
-
-        &:after {
-          top: 0;
-          right: 0;
-          width: 45px;
-          height: 60px;
-        }
-      }
       &-logo {
-        position: absolute;
-        display: block;
+        @include absoluteCenterX();
         top: 2px;
-        left: 0;
-        width: 140px;
-        height: 67px;
+        width: 54px;
+        height: 40px;
         margin: 0;
+      }
+      &-menu {
+        position: absolute;
+        top: 13px;
+        left: 14px;
+        letter-spacing: 0;
+
+        div {
+          display: inline-block;
+          vertical-align: top;
+          margin-right: 20.5px;
+        }
+        a {
+          @include transition(color, .3, 0);
+
+          &:hover {
+            color: #191e24;
+          }
+        }
       }
       &-crafted {
         position: absolute;
-        top: 0;
-        right: 29px;
-        letter-spacing: 0;
+        top: 13px;
+        right: 14px;
+        letter-spacing: -0.6px;
+      }
+    }
+    &__hero {
+      padding: 99px 0 0;
+
+      &-text {
+        font-size: 36px;
+        line-height: 50px;
+        letter-spacing: -0.8px;
+
+        p {
+          margin-bottom: 48px;
+        }
+      }
+      &-pic {
+        width: 713px;
+        right: -125px;
+      }
+      &-down {
+        bottom: 7.3%;
+      }
+    }
+  }
+}
+@media (min-width: 1500px) {
+
+  .site {
+    &__menu {
+      width: 970px;
+
+      .site__menu-item {
+        margin-right: 42px;
+      }
+      .btn {
+        position: relative;
+        left: 13px;
+        margin-left: 34px;
       }
     }
   }

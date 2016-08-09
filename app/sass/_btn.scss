@@ -2,14 +2,15 @@
   display: inline-block;
   vertical-align: top;
   position: relative;
-  height: 60px;
-  padding: 20px 38px;
+  padding: 0 37px;
   border: 2px solid $main-blue-color;
-  background-color: $btn-back;
-  font-size: 14px;
-  line-height: 16px;
-  color: $main-blue-color;
-  @include main-font1();
+  border-radius: 3px;
+  background-color: transparent;
+  font-size: 18px;
+  line-height: 49px;
+  color: $main-white-color;
+  letter-spacing: -0.5px;
+  @include main-font5();
   @include transition(all, .3, 0);
 
   &:hover {
