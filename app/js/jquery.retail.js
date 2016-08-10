@@ -2,15 +2,15 @@
 
     $( function() {
 
-        $.each( $( '.contacts__gallery' ), function() {
+        $.each( $( '.retail__gallery' ), function() {
 
-            new ContactsSlider ( $( this ) );
+            new RetailSlider ( $( this ) );
 
         } );
 
     } );
 
-    var ContactsSlider = function ( obj ) {
+    var RetailSlider = function ( obj ) {
 
         //private properties
         var _self = this,
@@ -25,7 +25,9 @@
                 _swiper = new Swiper( _sliderContainer, {
                     loop: true,
                     nextButton: _sliderContainer.find( '.swiper-button-next' ),
-                    prevButton: _sliderContainer.find( '.swiper-button-prev' )
+                    prevButton: _sliderContainer.find( '.swiper-button-prev' ),
+                    pagination: _obj.find( '.swiper-pagination' ),
+                    paginationClickable: true
                 });
 
             },

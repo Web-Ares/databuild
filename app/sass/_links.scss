@@ -31,6 +31,9 @@
       content: '';
       @include transition(all, .3, 0);
     }
+    > div {
+      position: relative;
+    }
     span {
       position: relative;
       top: -6px;
@@ -40,11 +43,19 @@
       letter-spacing: -1px;
     }
   }
-  &__left {
-    background: $main-blue-color;
-  }
-  &__right {
-    background: #191e24;
+  &__back-image {
+    background-size: cover;
+    background-position: center;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(25,30,36, .9);
+      content: '';
+    }
   }
 }
 

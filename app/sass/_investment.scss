@@ -19,7 +19,7 @@
         li {
 
           &:last-child {
-            border-bottom: 2px solid #e8ebef;
+            border-bottom: 2px solid $investmets-border;
           }
         }
       }
@@ -29,7 +29,7 @@
         padding-left: 110px;
         padding-top: 20px;
         padding-bottom: 20px;
-        border-top: 2px solid #e8ebef;
+        border-top: 2px solid $investmets-border;
         font-size: 16px;
         line-height: 24px;
         color: $main-text-color;
@@ -79,10 +79,10 @@
         align-content: center;
         align-items: center;
         height: 162px;
-        border-top: 2px solid #e8ebef;
+        border-top: 2px solid $investmets-border;
 
         &:last-child {
-          border-bottom: 2px solid #e8ebef;
+          border-bottom: 2px solid $investmets-border;
 
           li:last-child {
             border-bottom: none;

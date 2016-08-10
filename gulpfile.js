@@ -30,6 +30,13 @@ var paths = {
                 'app/js/jquery.main.js',
                 'app/js/jquery.contacts.js'
             ]
+        },
+        {
+            dist: 'retail.min.js',
+            contains: [
+                'app/js/jquery.main.js',
+                'app/js/jquery.retail.js'
+            ]
         }
     ],
     vendorScripts: 'app/js/vendors/**/*.js',

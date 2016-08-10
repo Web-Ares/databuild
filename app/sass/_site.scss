@@ -57,9 +57,9 @@
     .btn {
       margin-top: 20px;
       padding: 0 20px;
-      border-color: #fff;
+      border-color: $main-white-color;
       line-height: 44px;
-      color: #fff;
+      color: $main-white-color;
     }
   }
   &__menu-btn {
@@ -206,7 +206,6 @@
     align-content: center;
     height: 100vh;
     width: 100%;
-    background-image: url('../pic/hero-pic.jpg');
     background-size: cover;
     background-position: center;
 
@@ -262,6 +261,15 @@
       animation: bounce 2s infinite linear;
       cursor: pointer;
     }
+    &_retail {
+
+      &:before {
+        background-color: rgba(25,30,36, .97);
+      }
+      &:after {
+        display: none;
+      }
+    }
   }
   &__centered {
     position: relative;
@@ -289,7 +297,7 @@
 
     span {
       font-size: 20px;
-      color: #999;
+      color: $main-sub-title-color;
       display: block;
     }
 
@@ -373,6 +381,7 @@
 }
 @media (min-width: $tablet-portrait) {
   .site {
+
     &__title {
       margin-bottom: 47px;
       margin-left: -2px;
@@ -381,8 +390,6 @@
 
       span {
         font-size: 24px;
-        color: #999;
-        display: block;
       }
     }
   }
