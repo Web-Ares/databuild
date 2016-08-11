@@ -14,7 +14,7 @@
   @include transition(all, .3, 0);
 
   &:hover {
-    color: #fff;
+    color: $main-white-color;
     background: $main-blue-color;
   }
 }

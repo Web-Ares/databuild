@@ -49,6 +49,45 @@
     }
   }
 }
+.gallery__thumbs-btns {
+  z-index: 1;
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    @include absoluteCenterY();
+    left: 0;
+    height: 100px;
+    width: 50px;
+    margin: 0;
+    background: rgba(255,255,255, 1);
+    border-radius: 0 50px 50px 0;
+    @include transition(background, .3, 0);
+
+    &:after {
+      @include absoluteCenterY();
+      left: 10px;
+      width: 12px;
+      height: 20px;
+      background: url(../img/slider-arrows.png) no-repeat;
+      background-size: 30px 20px;
+      background-position: left top;
+      content: '';
+    }
+    &:hover {
+      background: rgba(255,255,255,0.7);
+    }
+  }
+  .swiper-button-next {
+    left: auto;
+    right: 0;
+    border-radius: 50px 0 0 50px;
+
+    &:after {
+      left: 29px;
+      background-position: right top;
+    }
+  }
+}
 
 @media (min-width: $tablet-portrait) {
 

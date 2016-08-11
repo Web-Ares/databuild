@@ -1,0 +1,158 @@
+
+.gallery {
+  position: relative;
+
+  .gallery__top {
+    height: 86%;
+  }
+  .gallery__thumbs,
+  .gallery__thumbs-btns {
+   @include absoluteCenterX();
+    bottom: 14px;
+    height: auto;
+    width: 90%;
+    max-width: 1170px;
+
+    .swiper-slide {
+      width: 129px;
+      height: 129px;
+      border: 10px solid $main-white-color;
+      cursor: pointer;
+
+      &:after {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        bottom: -1px;
+        left: -1px;
+        background-color: rgba(255,255,255, .6);
+        background-image: url(../img/black-arrow.png);
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-size: 38px 48px;
+        -webkit-transition: all .3s;
+        transition: all .3s;
+        content: '';
+      }
+      &.is-selected,
+      &:hover {
+
+        &:after {
+          visibility: visible;
+          opacity: 1;
+          background-position: center center;
+        }
+      }
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+
+      &:after {
+        @include absoluteCenter();
+      }
+    }
+    .swiper-button-next {
+      right: -55px;
+    }
+    .swiper-button-prev {
+      left: -55px;
+
+      &:after {
+        margin-left: -1px;
+      }
+    }
+  }
+  .gallery__thumbs-btns {
+    display: none;
+  }
+  .gallery__thumbs {
+    z-index: 2;
+  }
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .gallery {
+    position: relative;
+
+    .gallery__top {
+      height: 89.1%;
+    }
+    .gallery__thumbs,
+    .gallery__thumbs-btns {
+      bottom: 3.3%;
+
+      .swiper-slide {
+        width: 21.73%;
+        padding-bottom: 18.9%;
+        height: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-landscape) {
+
+  .gallery {
+    position: relative;
+
+    .gallery__top {
+      height: 89.1%;
+    }
+    .gallery__thumbs,
+    .gallery__thumbs-btns {
+      bottom: 3.1%;
+
+      .swiper-slide {
+        width: 13.86%;
+        padding-bottom: 11.6%;
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+
+  .gallery {
+    position: relative;
+
+    .gallery__top {
+      height: 89.1%;
+    }
+    .gallery__thumbs,
+    .gallery__thumbs-btns {
+      bottom: 14px;
+      height: 170px;
+
+      .swiper-slide {
+        width: 14.34%;
+        height: 100%;
+      }
+    }
+    .gallery__thumbs-btns {
+      display: block;
+    }
+  }
+}
+@media (min-width: 1300px) {
+
+  .gallery {
+    position: relative;
+
+    .gallery__top {
+      height: 89.1%;
+    }
+    .gallery__thumbs,
+    .gallery__thumbs-btns {
+
+      .swiper-slide {
+        width: 14.51%;
+      }
+    }
+  }
+}
