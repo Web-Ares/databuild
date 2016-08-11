@@ -18,7 +18,6 @@
             _sliderContainer = _obj.find( '.swiper-container' ),
             _swiper;
 
-        console.log(100);
         //private methods
         var _initSwiper = function () {
 

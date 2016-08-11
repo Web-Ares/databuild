@@ -19,7 +19,7 @@
   .swiper-button-next,
   .swiper-button-prev {
     @include absoluteCenterY();
-    left: 0;
+    left: -1px;
     height: 100px;
     width: 50px;
     margin: 0;
@@ -40,7 +40,7 @@
   }
   .swiper-button-next {
     left: auto;
-    right: 0;
+    right: -1px;
     border-radius: 50px 0 0 50px;
 
     &:after {
